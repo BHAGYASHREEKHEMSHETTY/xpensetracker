@@ -65,8 +65,8 @@ function Home() {
 
     return (
         <div className={styles.container}>
-             <h1>Expense Tracker</h1>
-            <h2>Finance Visualizer</h2>
+             
+            <h1>Finance Visualizer</h1>
             <div className={styles.cardsWrapper}>
                 <Card title="Wallet Balance" money={balance} buttonText="+ Add Income" buttonType="success" handleClick={handleAddIncome} />
                 <Card title="Total Expenses" money={totalExpensesAmount} buttonText="+ Add Expense" buttonType="failure" handleClick={handleAddExpense} />
