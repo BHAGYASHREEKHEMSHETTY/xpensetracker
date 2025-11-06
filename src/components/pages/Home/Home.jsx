@@ -19,6 +19,9 @@ const useLocalStorage = (key, initialValue) => {
 
     useEffect(() => {
         localStorage.setItem(key, JSON.stringify(storedValue));
+    
+
+        
     }, [key, storedValue]);
 
     return [storedValue, setStoredValue];
@@ -41,7 +44,7 @@ const calculateCategoryStats = (expenseList) => {
 
 function Home() {
     const [balance, setBalance] = useLocalStorage("balance", 5000);
-    const [expenseList, setExpenseList] = useLocalStorage("expense", []);
+    const [expenseList, setExpenseList] = useLocalStorage("expenses", []);
     const [isOpenBalance, setIsOpenBalance] = useState(false);
     const [isOpenExpense, setIsOpenExpense] = useState(false);
     const [monthlyBudget, setMonthlyBudget] = useLocalStorage("monthlyBudget", { food: 0, entertainment: 0, travel: 0 });
@@ -65,8 +68,8 @@ function Home() {
 
     return (
         <div className={styles.container}>
-             
-            <h1>Finance Visualizer</h1>
+             <h1>Expense Tracker</h1>
+            <h2>Finance Visualizer</h2>
             <div className={styles.cardsWrapper}>
                 <Card title="Wallet Balance" money={balance} buttonText="+ Add Income" buttonType="success" handleClick={handleAddIncome} />
                 <Card title="Total Expenses" money={totalExpensesAmount} buttonText="+ Add Expense" buttonType="failure" handleClick={handleAddExpense} />
